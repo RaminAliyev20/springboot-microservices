@@ -4,9 +4,11 @@ import com.example.productservice.dao.entity.ProductEntity;
 import com.example.productservice.dao.repository.ProductRepository;
 import com.example.productservice.mapper.ProductMapper;
 import com.example.productservice.model.requestDto.ProductRequestDto;
+import com.example.productservice.model.responseDto.CategoryResponseDto;
 import com.example.productservice.model.responseDto.ProductResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.List;
 
@@ -14,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductService {
     private final ProductRepository productRepository;
-
+    private final WebClient webClient;
 
     public List<ProductResponseDto> getProducts(){
         List<ProductEntity> list = productRepository.findAll();
@@ -25,8 +27,23 @@ public class ProductService {
         ProductEntity entity = productRepository.findById(id)
                 .orElseThrow(() -> new Exception("not Found"));
 
-        return ProductMapper.INSTANCE.mapEntityToDto(entity);
+        CategoryResponseDto category = webClient.get()
+                .uri("http://localhost:8092/v1/category/" + entity.getCategoryId())
+                .retrieve()
+                .bodyToMono(CategoryResponseDto.class)
+                .block();
+
+        System.out.println("Category Response: " + category);
+
+        ProductResponseDto productResponseDto = ProductMapper.INSTANCE.mapEntityToDto(entity);
+
+        productResponseDto.setCategoryResponseDto(category);
+
+        System.out.println(productResponseDto);
+
+        return productResponseDto;
     }
+
 
     public void addProduct(ProductRequestDto productRequestDto){
         ProductEntity entity=ProductMapper.INSTANCE.mapRequestDtoToEntity(productRequestDto);

@@ -9,7 +9,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-11-21T14:19:21+0400",
+    date = "2024-11-21T14:53:30+0400",
     comments = "version: 1.5.5.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-8.10.2.jar, environment: Java 17.0.11 (Amazon.com Inc.)"
 )
 public class ProductMapperImpl extends ProductMapper {
@@ -71,6 +71,7 @@ public class ProductMapperImpl extends ProductMapper {
         productEntity.setName( productRequestDto.getName() );
         productEntity.setDescription( productRequestDto.getDescription() );
         productEntity.setPrice( productRequestDto.getPrice() );
+        productEntity.setCategoryId( productRequestDto.getCategoryId() );
 
         return productEntity;
     }

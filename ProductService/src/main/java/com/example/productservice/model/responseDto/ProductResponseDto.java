@@ -15,4 +15,6 @@ public class ProductResponseDto {
     private String name;
     private String description;
     private double price;
+
+    private CategoryResponseDto categoryResponseDto;
 }
