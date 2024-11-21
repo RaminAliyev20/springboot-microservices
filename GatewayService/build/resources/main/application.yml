@@ -1,0 +1,22 @@
+server:
+  port: 2020
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+spring:
+  application:
+    name: GatewayService
+  cloud:
+    gateway:
+      routes:
+        - id: ProductService
+          uri: lb://ProductService
+          predicates:
+            - Path=/api/product
+        - id: CategoryService
+          uri: lb://CategoryService
+          predicates:
+            - Path=/api/category
