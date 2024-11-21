@@ -1,0 +1,18 @@
+server:
+  port: 8091
+spring:
+  application:
+    name: ProductService
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: 2004
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/  # Eureka serverinin URL-i

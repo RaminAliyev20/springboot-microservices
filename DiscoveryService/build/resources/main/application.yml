@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: DiscoveryService
+
+server:
+  port: 8761  # Eureka serveri üçün port nömrəsi
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false  # Bu server özü qeydiyyatdan keçmir
+    fetch-registry: false         # Bu server digər serverləri qətiyyən çəkmir
