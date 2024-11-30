@@ -7,6 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/DiscoveryService/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/GatewayService/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ProductService/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/IdentityService/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

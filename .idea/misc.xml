@@ -5,6 +5,7 @@
     <file type="web" url="file://$PROJECT_DIR$/CategoryService" />
     <file type="web" url="file://$PROJECT_DIR$/DiscoveryService" />
     <file type="web" url="file://$PROJECT_DIR$/GatewayService" />
+    <file type="web" url="file://$PROJECT_DIR$/IdentityService" />
     <file type="web" url="file://$PROJECT_DIR$/ProductService" />
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="22" project-jdk-type="JavaSDK">

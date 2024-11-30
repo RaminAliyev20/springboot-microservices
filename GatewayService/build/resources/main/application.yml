@@ -1,5 +1,5 @@
 server:
-  port: 2020
+  port: 4040
 
 eureka:
   client:
@@ -12,11 +12,11 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: ProductService
-          uri: lb://ProductService
+        - id: product_service
+          uri: lb://PRODUCTSERVICE
           predicates:
-            - Path=/api/product
-        - id: CategoryService
-          uri: lb://CategoryService
+            - Path=/api/products/**
+        - id: category_service
+          uri: lb://CATEGORYSERVICE
           predicates:
-            - Path=/api/category
+            - Path=/api/categories/**
